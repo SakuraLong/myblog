@@ -1,0 +1,135 @@
+/* 
+1. 标题字体
+2. 正文字体
+3. 动作告知字体（跳转按钮、链接）（和2基本上一样）
+4. 艺术字体
+*/
+
+/* 0 */
+html {
+    color: var(--bl-color-primary-text);
+    font-family: "Inter", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+}
+
+.font,
+*[text] {
+    color: var(--bl-color-primary-text);
+}
+
+/* 1 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+*[title-f] {
+    font-family: Times, "Times New Roman", STKaiti, KaiTi, serif;
+    font-weight: bold;
+}
+
+/* 2 */
+*[main-f] {
+    font-family: sans-serif;
+}
+
+/* 3 */
+*[action-f] {
+    font-family: "Microsoft YaHei", "SimSun", sans-serif;
+}
+
+/* 4 */
+*[elysia-c] {
+    color: var(--bl-elysia-base);
+}
+*[elysia-f] {
+    font-family: 'Note-Script-Medium', serif;
+    color: var(--bl-elysia-base);
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 3px;
+}
+
+/* size */
+.font[s-09] {
+    font-size: 0.9em;
+}
+
+.font[s-larger] {
+    font-size: 32px;
+}
+
+.font[s-large] {
+    font-size: 24px;
+}
+
+.font[s-biger] {
+    font-size: 20px;
+}
+
+.font[s-big] {
+    font-size: 18px;
+}
+
+.font[s-default] {
+    font-size: 16px;
+}
+
+.font[s-small] {
+    font-size: 14px;
+}
+
+.font[s-mini] {
+    font-size: 12px;
+}
+
+/* weight */
+.font[w-b] {
+    font-weight: bold;
+}
+
+/* underline */
+.font[uline] {
+    text-decoration: underline;
+}
+
+.font[uline-hover]:hover {
+    text-decoration: underline;
+}
+
+/* color */
+.font[f-color=p] {
+    color: var(--bl-color-primary-text);
+}
+
+.font[f-color=r] {
+    color: var(--bl-color-regular-text);
+}
+
+/* others */
+*[italic-f] {
+    font-style: italic;
+}
+
+*[no-wrap-f] {
+    white-space: nowrap;
+}
+
+*[no-select] {
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE/Edge */
+    user-select: none;
+    /* 标准语法 */
+}
+
+*[pointer] {
+    cursor: pointer;
+}
+
+*[t-center] {
+    text-align: center;
+}
