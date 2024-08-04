@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-projects">
+  <div class="menu-child">
     <ProjectsList
       :projects="data.projects"
       :categories="data.categories"
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import ProjectsList from '@/components/ProjectsList'
 import { scrollToTop } from '@/utils/utils'
 export default {
@@ -27,8 +27,4 @@ export default {
 </script>
 
 <style>
-.menu-projects {
-  padding: 10px 20px;
-  color: var(--bl-color-primary-text);
-}
 </style>

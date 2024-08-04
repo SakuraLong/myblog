@@ -30,7 +30,7 @@
       >
         <span
           :title="$t('PostTitle.publicationTime') + post.publicationTimeFormat"
-          class="flex gap"
+          class="flex gap post-title__time"
           inline-flex
           f-ai-c
           g-mini
@@ -42,7 +42,7 @@
         <span
           v-if="post.modificationTime"
           :title="$t('PostTitle.modificationTime') + post.modificationTimeFormat"
-          class="flex gap"
+          class="flex gap post-title__time"
           f-ai-c
           g-mini
         >
@@ -57,7 +57,7 @@
       >
         <span
           :title="$t('PostTitle.wordCount')"
-          class="flex gap"
+          class="flex gap post-title__data"
           f-ai-c
           g-mini
         >
@@ -67,7 +67,7 @@
         <span>-</span>
         <span
           :title="$t('PostTitle.readingTime')"
-          class="flex gap"
+          class="flex gap post-title__data"
           f-ai-c
           g-mini
         >

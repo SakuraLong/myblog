@@ -4,6 +4,9 @@
       class="flex gap"
       f-c
     >
+      <div>
+        <span @click="add">增加</span>
+      </div>
       <cdItem
         v-for="_, i in categories"
         :key="i"
@@ -30,7 +33,7 @@
 </template>
 
 <script>
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import cdItem from './cdItem.vue'
 import { deepClone, message } from '@/utils/utils'
 export default {
@@ -68,6 +71,14 @@ export default {
       const child = this.categories[i]
       this.categories.splice(i, 1)
       this.categories.splice(i + 1, 0, child)
+    },
+    add() {
+      const t = {
+        name: '',
+        children: [],
+        unfold: false
+      }
+      this.categories.push(t)
     }
   }
 }

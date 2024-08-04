@@ -14,7 +14,7 @@
 
 <script>
 import item from './item.vue'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 export default {
   components: {
     item

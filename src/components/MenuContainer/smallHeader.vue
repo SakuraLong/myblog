@@ -22,7 +22,8 @@ export default {
       links: [
         ['about', 'Menu.Nav.about', '/menu/about'],
         ['projects', 'Menu.Nav.projects', '/menu/projects'],
-        ['friends', 'Menu.Nav.friends', '/menu/friends']
+        ['friends', 'Menu.Nav.friends', '/menu/friends'],
+        ['setting', 'Menu.Nav.setting', '/menu/setting']
       ]
     }
   }

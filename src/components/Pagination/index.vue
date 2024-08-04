@@ -90,7 +90,8 @@ export default {
 .pagination > div > a {
   color: var(--bl-color-regular-text) !important;
 }
-.pagination > div:hover {
+.pagination > div:first-child:hover,
+.pagination > div:last-child:hover {
   box-shadow: var(--bl-shadow-02);
 }
 .pagination > div:hover > a {

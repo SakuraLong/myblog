@@ -1,6 +1,6 @@
 import { set, get, del } from '@/utils/stroage'
 import code from './code'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 
 export function setToken(token /* encrypted */) {
   try {

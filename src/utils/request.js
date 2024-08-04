@@ -6,7 +6,7 @@ import router from '@/router'
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
   headers: {
-    'Cache-Control': process.env.VUE_APP_NO_CACHE === true ? 'no-cache' : null
+    'Cache-Control': process.env.VUE_APP_NO_CACHE === 'true' ? 'no-cache' : null
   }
 })
 

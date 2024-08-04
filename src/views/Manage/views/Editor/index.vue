@@ -38,13 +38,12 @@
 <script>
 import Structure from '@/components/Structure'
 import Header from '@/components/Header'
-import ThemeSelector from '@/components/ThemeSelector/themeManager'
 import { Codemirror } from 'vue-codemirror'
 import { markdown } from '@codemirror/lang-markdown'
 import { oneDark } from '@codemirror/theme-one-dark'
 import MdRenderer from '@/components/MdRenderer'
 import ManageEditorController from '@/components/ManageEditorController'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import { detailDataSave } from '@/api/blogManage'
 import { message, convertKeysToSnakeCase } from '@/utils/utils'
 export default {

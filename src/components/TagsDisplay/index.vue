@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import BlogManager from '@/BlogManager'
-import ThemeSelector from '../ThemeSelector/themeManager'
+import BlogManager from '@/assets/js/BlogManager'
+import ThemeManager from '@/assets/js/ThemeManager'
 export default {
   data() {
     return {
@@ -26,13 +26,13 @@ export default {
     }
   },
   created() {
-    const ts = new ThemeSelector()
+    const ts = new ThemeManager()
     this.render(ts.useMode)
-    ts.event.addEventListener('change', this.themeChange)
+    ts.on('change', this.themeChange, this)
   },
   beforeUnmount() {
-    const ts = new ThemeSelector()
-    ts.event.removeEventListener('change', this.themeChange)
+    const ts = new ThemeManager()
+    ts.off('change', this.themeChange, this)
   },
   methods: {
     themeChange(data) {

@@ -1,21 +1,47 @@
 import { set, get } from '@/utils/stroage'
-import Event from '@/utils/event'
+import EventEmitter from 'eventemitter3'
 
-class ThemeSelector {
+export default class ThemeManager {
   static instance = null
   constructor() {
-    if (ThemeSelector.instance !== null) return ThemeSelector.instance
+    if (ThemeManager.instance !== null) return ThemeManager.instance
+    /**
+     * 本地数据库键
+     */
     this.KEY = 'blog-theme'
-    this.mode = 0 // 0 light 1 dark
-    this.themeMode = 0 // 0 light 1 dark 2 os
-    this.useMode = 0 // 0 light 1 dark
 
-    this.event = new Event()
+    /**
+     * 系统主题
+     *
+     * - 0 light
+     * - 1 dark
+     */
+    this.mode = 0
+
+    /**
+     * 设置主题
+     *
+     * - 0 light
+     * - 1 dark
+     * - 2 os
+     */
+    this.themeMode = 0
+
+    /**
+     * 应该使用的主题
+     *
+     * - 0 light
+     * - 1 dark
+     */
+    this.useMode = 0
+
+    this.ee = new EventEmitter()
 
     this.init()
 
-    ThemeSelector.instance = this
+    ThemeManager.instance = this
   }
+
   init() {
     this.listenForSystemThemeChange() // get os mode
     const data = get(0, this.KEY, {
@@ -25,6 +51,7 @@ class ThemeSelector {
 
     this.useTheme()
   }
+
   useTheme() {
     if (this.themeMode === 2) this.useMode = this.mode
     else this.useMode = this.themeMode
@@ -41,11 +68,12 @@ class ThemeSelector {
     } else {
       document.body.classList.remove('theme-os-default')
     }
-    this.event.trigger('change', {
+    this.ee.emit('change', {
       useMode: this.useMode,
       themeMode: this.themeMode
     })
   }
+
   listenForSystemThemeChange() {
     // 检查matchMedia是否可用
     if (window.matchMedia) {
@@ -65,6 +93,7 @@ class ThemeSelector {
       console.log('当前浏览器不支持matchMedia API')
     }
   }
+
   changeTMTo(themeMode) {
     if (this.themeMode !== themeMode) {
       this.themeMode = themeMode
@@ -81,6 +110,12 @@ class ThemeSelector {
       }
     }
   }
-}
 
-export default ThemeSelector
+  on() {
+    this.ee.on(...arguments)
+  }
+
+  off() {
+    this.ee.off(...arguments)
+  }
+}

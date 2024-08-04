@@ -41,7 +41,7 @@ import HotTags from '@/components/HotTags'
 import BlogMessages from '@/components/BlogMessages'
 import router from '@/router'
 import store from '@/store'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import personal from './personal.vue'
 export default {
   components: {

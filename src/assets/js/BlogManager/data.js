@@ -6,7 +6,9 @@ export default {
     blogName: '<span italic-f>SakuraLong\'s</span>',
     blogDesc: '<span elysia-f>Elysian</span><span italic-f size-09-f> Fields</span>',
     hello: 'Ciallo～(∠・ω< )⌒<span style="color: #FFF200">★</span>',
+    helloText: 'Ciallo～(∠・ω< )⌒★',
     name: 'SakuraLong',
+    nameText: 'SakuraLong',
     helloName: '<span class="font" elysia-c uline >SakuraLong</span>',
     about: 'Student',
     detailAbout: 'Student',
@@ -30,7 +32,9 @@ export default {
     beian: ['琼ICP备2024038765号', 'https://beian.miit.gov.cn'],
     begin: '2024',
     imageBaseUrl: 'https://cdn.jsdelivr.net/gh/SakuraLong/images/blog/',
-    baseUrl: 'https://www.sakuralong.com/'
+    baseUrl: 'https://www.sakuralong.com',
+    themeColor: '#FFD6FB',
+    consoleStyle: 'background: black; color: #FFD6FB; line-height: 2;'
   },
   projects: projects,
   friends: friends

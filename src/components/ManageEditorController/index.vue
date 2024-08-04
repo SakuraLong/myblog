@@ -122,7 +122,7 @@
 </template>
 
 <script>
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import { detailDataSave, publish } from '@/api/blogManage'
 import { deepClone, message, convertKeysToSnakeCase } from '@/utils/utils'
 import imagesManager from './imagesManager.vue'

@@ -12,7 +12,7 @@
 
 <script>
 import myol from './myol.vue'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 export default {
   components: {
     myol

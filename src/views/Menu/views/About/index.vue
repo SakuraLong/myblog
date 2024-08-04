@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-about">
+  <div class="menu-child menu-about">
     <header>
       <div name>
         <span v-html="BlogManager.data.personalInfo.hello" />
@@ -38,7 +38,7 @@
 <script>
 import Avatar from '@/components/Avatar'
 import { scrollToTop } from '@/utils/utils'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 export default {
   components: {
     Avatar
@@ -55,10 +55,6 @@ export default {
 </script>
 
 <style>
-.menu-about {
-  padding: 10px 20px;
-  color: var(--bl-color-primary-text);
-}
 .menu-about > header {
   display: flex;
   justify-content: space-between;

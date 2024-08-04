@@ -70,7 +70,8 @@ export default {
     Nav: {
       about: '关于',
       projects: '项目',
-      friends: '友链'
+      friends: '友链',
+      setting: '设置'
     },
     About: {
       aka: 'a.k.a',

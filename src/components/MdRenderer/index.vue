@@ -11,7 +11,7 @@
 import MarkdownIt from 'markdown-it'
 import hljs from 'highlight.js'
 import init from './init'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import Clipboard from 'clipboard'
 import { message, generateRandomStringBase } from '@/utils/utils'
 export default {

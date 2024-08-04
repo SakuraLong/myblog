@@ -1,7 +1,6 @@
 import CryptoJS from 'crypto-js'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 
-// 随机生成指定数量的16进制key
 /**
  * 随机生成指定数量的16进制key
  * @param {int} num key长度
