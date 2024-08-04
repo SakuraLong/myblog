@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import cdItem from './cdItem.vue'
 export default {
   components: {

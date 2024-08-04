@@ -27,5 +27,8 @@ export default {
 </script>
 
 <style>
-
+.menu-child {
+  padding: 10px 20px;
+  color: var(--bl-color-primary-text);
+}
 </style>

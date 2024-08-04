@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import { message } from '@/utils/utils'
 export default {
   props: {
@@ -108,7 +108,6 @@ export default {
     renameImageConfirm() {
       const oldName = this.imagesList[this.selected][1]
       const newName = this.newName + '.' + this.imagesList[this.selected][2]
-      console.log(oldName, newName)
       const bm = new BlogManager()
       bm.sm.im.renameImage(oldName, newName, this.idEn).then(() => {
         bm.sm.im.getImageUrls(this.idEn, true).then((urls) => {

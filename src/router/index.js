@@ -2,22 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import { message } from '@/utils/utils'
 
 import Home from '@/views/Home'
-import Post from '@/views/Post'
-import Archive from '@/views/Archive'
-import Search from '@/views/Search'
-import Tags from '@/views/Tags'
-import Categories from '@/views/Categories'
-import Error from '@/views/Error'
-import Menu from '@/views/Menu'
-import MenuAbout from '@/views/Menu/views/About'
-import MenuProjects from '@/views/Menu/views/Projects'
-import MenuFriends from '@/views/Menu/views/Friends'
-
-import Login from '@/views/Login'
 
 import store from '@/store'
 
@@ -43,7 +31,7 @@ const routes = [
   {
     path: '/post/:pathMatch(.*)*',
     name: 'post',
-    component: Post,
+    component: () => import('@/views/Post'),
     meta: {
       refresh: true,
       title: '文章 - '
@@ -52,7 +40,7 @@ const routes = [
   {
     path: '/archive',
     name: 'archive',
-    component: Archive,
+    component: () => import('@/views/Archive'),
     meta: {
       title: '归档 - '
     }
@@ -60,7 +48,7 @@ const routes = [
   {
     path: '/search',
     name: 'search',
-    component: Search,
+    component: () => import('@/views/Search'),
     meta: {
       title: '检索 - '
     }
@@ -68,7 +56,7 @@ const routes = [
   {
     path: '/tags',
     name: 'tags',
-    component: Tags,
+    component: () => import('@/views/Tags'),
     meta: {
       title: '标签 - '
     }
@@ -76,7 +64,7 @@ const routes = [
   {
     path: '/categories',
     name: 'categories',
-    component: Categories,
+    component: () => import('@/views/Categories'),
     meta: {
       title: '分类 - '
     }
@@ -84,7 +72,7 @@ const routes = [
   {
     path: '/error',
     name: 'error',
-    component: Error,
+    component: () => import('@/views/Error'),
     meta: {
       title: '错误 - '
     }
@@ -92,13 +80,13 @@ const routes = [
   {
     path: '/menu',
     name: 'menu',
-    component: Menu,
+    component: () => import('@/views/Menu'),
     redirect: '/menu/about',
     children: [
       {
         path: 'about',
         name: 'menuAbout',
-        component: MenuAbout,
+        component: () => import('@/views/Menu/views/About'),
         meta: {
           type: 'about',
           title: '关于 - '
@@ -107,7 +95,7 @@ const routes = [
       {
         path: 'projects',
         name: 'menuProjects',
-        component: MenuProjects,
+        component: () => import('@/views/Menu/views/Projects'),
         meta: {
           type: 'projects',
           title: '项目 - '
@@ -116,10 +104,19 @@ const routes = [
       {
         path: 'friends',
         name: 'menuFriends',
-        component: MenuFriends,
+        component: () => import('@/views/Menu/views/Friends'),
         meta: {
           type: 'friends',
           title: '友链 - '
+        }
+      },
+      {
+        path: 'setting',
+        name: 'menuSetting',
+        component: () => import('@/views/Menu/views/Setting'),
+        meta: {
+          type: 'setting',
+          title: '设置 - '
         }
       }
     ]
@@ -127,7 +124,7 @@ const routes = [
   {
     path: '/manage/login',
     name: 'login',
-    component: Login,
+    component: () => import('@/views/Login'),
     meta: {
       store: true,
       storeKey: 'login'

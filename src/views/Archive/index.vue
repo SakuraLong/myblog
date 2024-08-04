@@ -28,7 +28,7 @@
 
 <script>
 import Structure from '@/components/Structure'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import Header from '@/components/Header'
 import PostListSmall from '@/components/PostListSmall'
 import PostsNav from '@/components/PostsNav'

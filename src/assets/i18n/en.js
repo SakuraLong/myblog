@@ -70,7 +70,8 @@ export default {
     Nav: {
       about: 'About',
       projects: 'Projects',
-      friends: 'Friends'
+      friends: 'Friends',
+      setting: 'Setting'
     },
     About: {
       aka: 'a.k.a',

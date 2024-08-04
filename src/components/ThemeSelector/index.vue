@@ -6,7 +6,7 @@
   >
     <details ref="details">
       <summary
-        class="border-button flex"
+        class="border-button flex theme-summary"
         bb-small
         f-ai-c
         pointer
@@ -24,10 +24,11 @@
         <div
           v-for="item, i in themes"
           :key="i"
-          class="border-button flex"
+          class="border-button flex theme-item"
           bb-small
           f-ai-c
           pointer
+          :data-theme="item[3]"
           @click="changeTheme(item[2])"
         >
           <el-icon :size="18">
@@ -41,7 +42,7 @@
 </template>
 
 <script>
-import ThemeSelector from './themeManager'
+import ThemeManager from '@/assets/js/ThemeManager'
 export default {
   props: {
     absolubte: {
@@ -52,15 +53,15 @@ export default {
   data() {
     return {
       themes: [
-        ['OS Default', 'Tools', 2],
-        ['Light', 'Sunny', 0],
-        ['Dark', 'Moon', 1]
+        ['OS Default', 'Tools', 2, '跟随系统'],
+        ['Light', 'Sunny', 0, '亮色'],
+        ['Dark', 'Moon', 1, '暗色']
       ],
       nowTheme: ['OS Default', 'Tools', 2]
     }
   },
   created() {
-    const ts = new ThemeSelector()
+    const ts = new ThemeManager()
     this.nowTheme = this.themes.find((item) => item[2] === ts.themeMode)
   },
   mounted() {
@@ -71,7 +72,7 @@ export default {
   },
   methods: {
     changeTheme(themeMode) {
-      const ts = new ThemeSelector()
+      const ts = new ThemeManager()
       ts.changeTMTo(themeMode)
       this.nowTheme = this.themes.find((item) => item[2] === ts.themeMode)
       this.$refs.details.open = false

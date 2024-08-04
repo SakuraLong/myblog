@@ -1,6 +1,6 @@
 
 import JSEncrypt from 'jsencrypt'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 
 /**
  * RSA加密

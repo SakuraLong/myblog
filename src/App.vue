@@ -5,16 +5,34 @@
   >
     <router-view :key="refreshKey" />
     <Selector />
+    <Live2D
+      v-if="live2DShow && width >= 1280"
+      :pos="live2Dpos"
+      direction="x"
+      @close="close"
+    />
   </div>
 </template>
 
 <script>
 import Selector from '@/components/Selector'
-import ThemeSelector from '@/components/ThemeSelector/themeManager'
-import BlogManager from './BlogManager'
+import ThemeManager from './assets/js/ThemeManager'
+import Live2D from '@/components/Live2D'
+import BlogManager from '@/assets/js/BlogManager'
 export default {
   components: {
-    Selector
+    Selector,
+    Live2D
+  },
+  data() {
+    return {
+      live2Dpos: {
+        left: '950px',
+        bottom: '0'
+      },
+      width: 0,
+      live2DShow: true
+    }
   },
   computed: {
     refreshKey() {
@@ -39,10 +57,15 @@ export default {
     }
   },
   created() {
-    new ThemeSelector() // 初始化
+    new ThemeManager() // 初始化
   },
   mounted() {
     this.init()
+    this.resize()
+    window.addEventListener('resize', this.resize)
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.resize)
   },
   methods: {
     init() {
@@ -52,6 +75,12 @@ export default {
       } else {
         document.title = str
       }
+    },
+    resize() {
+      this.width = window.innerWidth
+    },
+    close() {
+      this.live2DShow = false
     }
   }
 }

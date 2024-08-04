@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import ThemeSelector from '../ThemeSelector/themeManager'
+import ThemeManager from '@/assets/js/ThemeManager'
 export default {
   props: {
     project: {
@@ -106,14 +106,14 @@ export default {
   },
   data() {
     return {
-      theme: new ThemeSelector().useMode === 0 ? 'light' : 'dark'
+      theme: new ThemeManager().useMode === 0 ? 'light' : 'dark'
     }
   },
   mounted() {
-    new ThemeSelector().event.addEventListener('change', this.themeChange)
+    new ThemeManager().on('change', this.themeChange, this)
   },
   beforeUnmount() {
-    new ThemeSelector().event.removeEventListener('change', this.themeChange)
+    new ThemeManager().off('change', this.themeChange, this)
   },
   methods: {
     themeChange(data) {

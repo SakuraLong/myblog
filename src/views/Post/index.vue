@@ -43,7 +43,7 @@ import PostTitle from '@/components/PostTitle'
 import CategoriesSmall from '@/components/CategoriesSmall'
 import TagsAndCates from '@/components/TagsAndCates'
 import MdFooter from '@/components/MdFooter'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import CC from '@/components/CC'
 import { scrollToTop } from '@/utils/utils'
 export default {

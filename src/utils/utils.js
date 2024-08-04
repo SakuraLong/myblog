@@ -1,31 +1,55 @@
 import { ElMessage } from 'element-plus'
 
-export const deepClone = (obj, cache = []) => {
-  // 如果为普通数据类型，则直接返回，完成拷贝
-  if (obj === null || typeof obj !== 'object') {
-    return obj
+function getType(obj) {
+  const map = {
+    '[object Boolean]': 'boolean',
+    '[object Number]': 'number',
+    '[object String]': 'string',
+    '[object Function]': 'function',
+    '[object Array]': 'array',
+    '[object Date]': 'date',
+    '[object RegExp]': 'regExp',
+    '[object Undefined]': 'undefined',
+    '[object Null]': 'null',
+    '[object Object]': 'object'
   }
-  // cache用来储存原始值和对应拷贝数据，在递归调用deepCopy函数时，如果本次拷贝的原始值在之前已经拷贝了，则直接返回储存中的copy值，这样的话就不用再循环复制本次原始值里面的每一项了。
-  // 还有一个更为重要的作用，假如原始值里面嵌套两个引用地址相同的对象，使用cache可以保证拷贝出来的copy值里面两个对象的引用地址也相同。
-  // 如果find查找的是一个空数组，则不会执行
-  const hit = find(cache, (c) => c.original === obj)
-  if (hit) {
-    return hit.copy
+  if (obj instanceof Element) {
+    return 'element'
   }
-  // 定义拷贝的数据类型
-  const copy = Array.isArray(obj) ? [] : {}
-  // 用来记录拷贝的原始值和copy值
-  cache.push[
-    {
-      original: obj,
-      copy
+  return map[Object.prototype.toString.call(obj)]
+}
+
+export function deepClone(target, stack) {
+  const type = getType(target)
+  if (type === 'array' || type === 'object') {
+    let _clone
+    if (type === 'array')  _clone = []
+    if (type === 'object') _clone = {}
+    // 检查循环引用并返回其对应的克隆
+    stack || (stack = new WeakMap())
+    var stacked = stack.get(target)
+    if (stacked) {
+      return stacked
     }
-  ]
-  // 递归调用深拷贝函数，拷贝对象中的每一个值
-  Object.keys(obj).forEach((key) => {
-    copy[key] = deepClone(obj[key], cache)
-  })
-  return copy
+    stack.set(target, _clone)
+    // 复杂数据类型 递归实现
+    if (type === 'array') {
+      target.forEach((element) => {
+        _clone.push(deepClone(element, stack))
+      })
+    } else {
+      for (const key in target) {
+        if (Object.hasOwnProperty.call(target, key)) {
+          const element = target[key]
+          _clone[key] = deepClone(element, stack)
+        }
+      }
+    }
+    return _clone
+  } else {
+    // 基础数据类型 直接返回
+    return target
+  }
 }
 
 /**
@@ -184,4 +208,57 @@ export function scrollToTop(instant = true) {
     top: 0,
     behavior: instant ? 'instant' : 'smooth'
   })
+}
+
+export function isObject(value) {
+  return typeof value === 'object' && value !== null && Object.prototype.toString.call(value) === '[object Object]'
+}
+
+export function probability(a, b) {
+  if (a <= 0 || b <= 0) {
+    throw new Error('输入的a和b必须大于0')
+  }
+  const random = Math.random()
+  return random < (a / b)
+}
+
+export function isInTimeInterval(timePeriods) {
+  // 获取当前时间
+  const now = new Date()
+  const hours = now.getHours()
+  const minutes = now.getMinutes()
+
+  // 将当前时间转换为分钟
+  const currentMinutes = hours * 60 + minutes
+
+  // 遍历时间区间列表
+  for (const [start, end] of timePeriods) {
+    // 将时间区间的开始和结束时间转换为分钟
+    const startMinutes = start * 60
+    const endMinutes = end === 24 ? 24 * 60 : end * 60 // 如果结束时间是24，转换为1440
+
+    // 检查当前时间是否在时间区间内
+    // 如果当前时间大于等于开始时间，并且小于结束时间
+    if (currentMinutes >= startMinutes && currentMinutes < endMinutes) {
+      return true
+    }
+  }
+
+  // 如果当前时间不在任何时间区间内，返回false
+  return false
+}
+
+export function createQuickClickJudge(time = 400, amount = 5) {
+  let now = 0
+  let timer = null
+  return function(func) {
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      now = 0
+    }, time)
+    now++
+    if (now >= amount) {
+      func()
+    }
+  }
 }

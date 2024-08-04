@@ -30,7 +30,7 @@
 <script>
 import Structure from '@/components/Structure'
 import Header from '@/components/Header'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import TagsDisplay from '@/components/TagsDisplay'
 import ACTTitle from '@/components/ACTTitle'
 import PostListSmall from '@/components/PostListSmall'

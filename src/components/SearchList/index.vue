@@ -43,7 +43,7 @@
 
 <script>
 import item from './item.vue'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import store from '@/store'
 export default {
   components: {

@@ -1,8 +1,8 @@
 <template>
   <div
-    class="flex gap padding font"
+    class="blog-footer flex gap padding font"
     f-c
-    f-ai-c
+    f-center
     g-small
   >
     <a
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 export default {
   data() {
     return {
@@ -29,8 +29,9 @@ export default {
 </script>
 
 <style>
-.footer {
-  text-align: center;
-  padding: 10px 0px;
+@media (min-width: 767px) {
+  .blog-footer {
+    min-height: 200px;
+  }
 }
 </style>

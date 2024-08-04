@@ -16,7 +16,7 @@
 <script>
 import TopStructure from '@/components/TopStructure'
 import PostList from '@/components/PostList'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 import router from '@/router'
 import Pagination from '@/components/Pagination'
 import About from '@/components/About'
@@ -40,7 +40,6 @@ export default {
     // home 下不会进入该if，不会死循环
     if (this.$route.params && this.$route.params.pagination) {
       page = parseInt(this.$route.params.pagination)
-      console.log('page', page)
       if (isNaN(page) || Math.max(1, page) === 1) {
         router.push({
           name: 'home'

@@ -43,7 +43,7 @@ import routes from './routes'
 import { login } from '@/api/login'
 import code from '@/utils/code'
 import { setToken } from '@/utils/auth'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 export default {
   data() {
     return {

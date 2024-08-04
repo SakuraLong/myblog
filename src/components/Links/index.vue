@@ -14,7 +14,7 @@
 
 <script>
 import link from './link.vue'
-import BlogManager from '@/BlogManager'
+import BlogManager from '@/assets/js/BlogManager'
 export default {
   components: {
     mylink: link

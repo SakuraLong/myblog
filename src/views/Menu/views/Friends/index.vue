@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-friends">
+  <div class="menu-child">
     <h3 t-center>Friends</h3>
     <FriendsListTest />
     <FriendsList />
@@ -22,8 +22,4 @@ export default {
 </script>
 
 <style>
-.menu-friends {
-  padding: 10px 20px;
-  color: var(--bl-color-primary-text);
-}
 </style>
